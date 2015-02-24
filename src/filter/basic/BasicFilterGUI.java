@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 
-import filter.Vector3d;
+import sensor.math.Vector3d;
 import sensor.math.Vector3s;
 
 public class BasicFilterGUI extends JFrame {

@@ -9,8 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import filter.Quaternion;
-import filter.Vector3d;
+import sensor.math.Quaternion4f;
+import sensor.math.Vector3d;
 
 public class DCMlogic {
 
@@ -21,7 +21,7 @@ public class DCMlogic {
 
 	//float twoKp = 2.0f * 1f;
 	//float twoKi = 2.0f * 0.0f;
-	private float KP_M = 10.0f;
+	private float KP_M = 2.0f;
 	private float KP_A = 2.0f;	
 	private float KI_M = 0;
 	
@@ -272,17 +272,17 @@ public class DCMlogic {
 		return (float) (1/Math.sqrt(x));
 	}
 
-	public Quaternion getQuaternion() {
+	public Quaternion4f getQuaternion() {
 		//System.out.println("STM "+stmQuat[0]+" "+stmQuat[1]+" "+stmQuat[2]+" "+stmQuat[3]);
 		//System.out.println("JAVA "+q0+" "+q1+" "+q2+" "+q3);
 		synchronized (sincronizzaUpdate) {
-			return new Quaternion(q0, q1, q2, q3);
+			return new Quaternion4f(q0, q1, q2, q3);
 		}
 	}
 
-	public Quaternion getPredictedQuaternion() {
+	public Quaternion4f getPredictedQuaternion() {
 		synchronized (sincronizzaUpdate) {
-			return new Quaternion(qPred1, qPred2, qPred3, qPred4);
+			return new Quaternion4f(qPred1, qPred2, qPred3, qPred4);
 		}
 	}
 
@@ -310,9 +310,9 @@ public class DCMlogic {
 		}
 	}
 
-	public Quaternion getQuaternionStm() {
+	public Quaternion4f getQuaternionStm() {
 		synchronized (stmQuat) {
-			return new Quaternion(stmQuat[0],stmQuat[1], stmQuat[2], stmQuat[3]);
+			return new Quaternion4f(stmQuat[0],stmQuat[1], stmQuat[2], stmQuat[3]);
 		}
 	}
 

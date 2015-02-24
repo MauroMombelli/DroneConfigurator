@@ -1,6 +1,7 @@
 package basic;
 import java.io.IOException;
 
+import basic.visualizer.DroneDcm;
 import sensor.SensorStreamReader;
 import sensor.implementation.BasicReader;
 import fastchart.Chart;
@@ -24,7 +25,7 @@ public class ConfiguratorGui {
 	public ConfiguratorGui() throws Exception {
 		SensorStreamReader listener = new BasicReader();
 		
-		GraphicMagic graph = new GraphicMagic("basic filter");
+		GraphicMagic graph = new GraphicMagic("basic filter", 1200, 800);
 		
 		Chart accelerometer = new Chart();
 		Chart magnetometer = new Chart();
@@ -70,12 +71,16 @@ public class ConfiguratorGui {
 		
 		MyDcm myDcm = new MyDcm();
 		
+		DroneDcm droneDcm = new DroneDcm();
+		
 		try {
 			listener.start();
 			
 			listener.addListener(sw);
 			
 			listener.addListener(myDcm);
+			
+			listener.addListener(droneDcm);
 			
 			//listener.addListener(new BasicFilter());
 			

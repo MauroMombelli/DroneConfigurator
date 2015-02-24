@@ -1,5 +1,6 @@
 package filter;
 
+import sensor.math.Vector3d;
 import sensor.math.Vector3s;
 
 public class Basic3dVectorStatistic {

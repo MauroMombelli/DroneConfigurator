@@ -1,6 +1,6 @@
 package filter.basic;
 
-import filter.Vector3d;
+import sensor.math.Vector3d;
 import sensor.math.Vector3s;
 
 public class SensorZero {

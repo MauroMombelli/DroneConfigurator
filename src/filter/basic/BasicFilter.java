@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.TreeMap;
 
 import filter.Basic3dVectorStatistic;
-import filter.Vector3d;
+import sensor.math.Vector3d;
 import sensor.math.Vector3s;
 import basic.SerieWrapper;
 
