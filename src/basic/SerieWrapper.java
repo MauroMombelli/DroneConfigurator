@@ -7,9 +7,9 @@ import sensor.math.Vector3s;
 
 public class SerieWrapper implements VectorListener {
 
-	SerieVector3 acce = new SerieVector3();
-	SerieVector3 gyro = new SerieVector3();
-	SerieVector3 magne = new SerieVector3();
+	SerieVector3 acce = new SerieVector3(1/35536.0);
+	SerieVector3 gyro = new SerieVector3(1/35536.0);
+	SerieVector3 magne = new SerieVector3(1/35536.0);
 
 	@Override
 	public void event(EventType t, Vector3s v, long packetNumber) {

@@ -69,9 +69,32 @@ public class ConfiguratorGui {
 		//Chart c2 = new Chart();
 		//graph.addPanel(c2);
 		
-		MyDcm myDcm = new MyDcm();
+		GraphicMagic graphDCM = new GraphicMagic("dcm output", 1200, 800);
+		Chart dcmX = new Chart();
+		Chart dcmY = new Chart();
+		Chart dcmZ = new Chart();
+		graphDCM.addPanel(dcmX);
+		graphDCM.addPanel(dcmZ);
+		graphDCM.addPanel(dcmY);
 		
-		DroneDcm droneDcm = new DroneDcm();
+		new Thread(graphDCM).start(); //fire and forget!
+		
+		
+		SerieVector3 vMyDcm = new SerieVector3(1/8.0);
+		MyDcm myDcm = new MyDcm(vMyDcm);
+		
+		
+		SerieVector3 vDroneDcm = new SerieVector3(1/8.0);
+		DroneDcm droneDcm = new DroneDcm(vDroneDcm);
+		
+		dcmX.addSerie(vMyDcm.x);
+		dcmX.addSerie(vDroneDcm.x);
+		
+		dcmY.addSerie(vMyDcm.y);
+		dcmY.addSerie(vDroneDcm.y);
+		
+		dcmZ.addSerie(vMyDcm.z);
+		dcmZ.addSerie(vDroneDcm.z);
 		
 		try {
 			listener.start();
