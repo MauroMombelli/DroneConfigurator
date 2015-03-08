@@ -24,9 +24,10 @@ public class DroneDcm implements QuaternionListener{
 
 	@Override
 	public void event(Quaternion4f dcm) {
+		/*
 		double[] matrix = new double[4*4];
 		dcm.createMatrix(matrix);
-		p.setRotationMatrix( matrix );
+		*/
 		
 		Vector3d eulerAngles = dcm.eulerAngles();
 		double[] array = eulerAngles.getArray();
@@ -39,6 +40,8 @@ public class DroneDcm implements QuaternionListener{
 		array[0] = array[1];
 		array[1] = d;
 		*/
+		
+		p.setRotationMatrix( array );
 		vDroneDcm.addNextVector(array);
 		
 	}

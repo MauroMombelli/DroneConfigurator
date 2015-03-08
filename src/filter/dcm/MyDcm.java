@@ -95,9 +95,9 @@ public class MyDcm implements VectorListener{
 			
 			dcm.getQuaternion().createMatrix(matrix);
 			*/
-			p.setRotation( array );
+			p.setRotation( fromQuad.getArray() );
 			
-			vMyDcm.addNextVector(array);
+			vMyDcm.addNextVector( fromQuad.getArray() );
 			
 			lastGyro = lastAcce = lastMagne = null;
 		}

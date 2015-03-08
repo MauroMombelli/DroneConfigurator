@@ -1,4 +1,5 @@
 package basic;
+import java.awt.Color;
 import java.io.IOException;
 
 import basic.visualizer.DroneDcm;
@@ -80,11 +81,11 @@ public class ConfiguratorGui {
 		new Thread(graphDCM).start(); //fire and forget!
 		
 		
-		SerieVector3 vMyDcm = new SerieVector3(1/8.0);
+		SerieVector3 vMyDcm = new SerieVector3(1/8.0, Color.RED, Color.RED, Color.RED);
 		MyDcm myDcm = new MyDcm(vMyDcm);
 		
 		
-		SerieVector3 vDroneDcm = new SerieVector3(1/8.0);
+		SerieVector3 vDroneDcm = new SerieVector3(1/8.0, Color.BLUE, Color.BLUE, Color.BLUE);
 		DroneDcm droneDcm = new DroneDcm(vDroneDcm);
 		
 		dcmX.addSerie(vMyDcm.x);
