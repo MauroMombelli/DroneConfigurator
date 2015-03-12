@@ -104,6 +104,7 @@ public class MyDcm implements VectorListener{
 	}
 
 	private double getFromQuad(Vector3d axis, Vector3d orto1, Quaternion4f dcm) {
+		//from http://stackoverflow.com/questions/3684269/component-of-a-quaternion-rotation-around-an-axis
 		
 		Vector3d tmp = new Vector3d(orto1);
 		
