@@ -1,0 +1,9 @@
+[submodule "submodules/lwjgl_chart"]
+	path = submodules/lwjgl_chart
+	url = git@github.com:MauroMombelli/lwjglChart.git
+[submodule "Sensor-Analizer"]
+	path = Sensor-Analizer
+	url = git@github.com:MauroMombelli/Sensor-Analizer.git
+[submodule "submodules/Sensor-Analizer"]
+	path = submodules/Sensor-Analizer
+	url = git@github.com:MauroMombelli/Sensor-Analizer.git
