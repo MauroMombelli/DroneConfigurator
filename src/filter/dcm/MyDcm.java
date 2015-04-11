@@ -80,7 +80,7 @@ public class MyDcm implements VectorListener{
 			System.out.println("from euler: "+eulerAngles+" from quath math: "+fromQuad);
 			
 			
-			double[] array = eulerAngles.getArray();
+			//double[] array = eulerAngles.getArray();
 			//double[] array = fromQuad.getArray();
 			/*
 			double d = array[1];
