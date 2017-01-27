@@ -3,12 +3,12 @@ import java.awt.Color;
 import java.io.IOException;
 
 import basic.visualizer.DroneDcm;
-import sensor.SensorStreamReader;
-import sensor.implementation.BasicReader;
 import fastchart.Chart;
 import fastchart.utils.GraphicMagic;
 import filter.basic.BasicFilter;
 import filter.dcm.MyDcm;
+import sensor.SensorStreamReader;
+import sensor.implementation.BasicReader2;
 
 
 public class ConfiguratorGui {
@@ -24,7 +24,7 @@ public class ConfiguratorGui {
 	}
 	
 	public ConfiguratorGui() throws Exception {
-		SensorStreamReader listener = new BasicReader();
+		SensorStreamReader listener = new BasicReader2();
 		
 		GraphicMagic graph = new GraphicMagic("basic filter", 1200, 800);
 		

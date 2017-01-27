@@ -77,7 +77,7 @@ public class MyDcm implements VectorListener{
 			//Vector3d eulerAngles = dcm.getQuaternion();
 			
 			
-			System.out.println("from euler: "+eulerAngles+" from quath math: "+fromQuad);
+			//System.out.println("from euler: "+eulerAngles+" from quath math: "+fromQuad);
 			
 			
 			//double[] array = eulerAngles.getArray();
