@@ -8,8 +8,8 @@ import fastchart.utils.GraphicMagic;
 import filter.basic.BasicFilter;
 import filter.dcm.MyDcm;
 import sensor.SensorStreamReader;
-import sensor.implementation.BasicReader2;
-
+import sensor.implementation.FileRader;
+import sensor.listener.FileRecoder;
 
 public class ConfiguratorGui {
 
@@ -24,7 +24,8 @@ public class ConfiguratorGui {
 	}
 	
 	public ConfiguratorGui() throws Exception {
-		SensorStreamReader listener = new BasicReader2();
+		//SensorStreamReader listener = new BasicReader2();
+		SensorStreamReader listener = new FileRader();
 		
 		GraphicMagic graph = new GraphicMagic("basic filter", 1200, 800);
 		
@@ -42,19 +43,19 @@ public class ConfiguratorGui {
 		
 		new Thread(graph).start(); //fire and forget!
 		
-		SerieWrapper sw = new BasicFilter();//new SerieWrapper();
-		accelerometer.addSerie(sw.acce.x);
-		accelerometer.addSerie(sw.acce.y);
-		accelerometer.addSerie(sw.acce.z);
+		SerieWrapper realtimeChart = new BasicFilter();//new SerieWrapper();
+		accelerometer.addSerie(realtimeChart.acce.x);
+		accelerometer.addSerie(realtimeChart.acce.y);
+		accelerometer.addSerie(realtimeChart.acce.z);
 		//accelerometer.addSerie(sw.acce.valid);
 		
-		magnetometer.addSerie(sw.magne.x);
-		magnetometer.addSerie(sw.magne.y);
-		magnetometer.addSerie(sw.magne.z);
+		magnetometer.addSerie(realtimeChart.magne.x);
+		magnetometer.addSerie(realtimeChart.magne.y);
+		magnetometer.addSerie(realtimeChart.magne.z);
 		
-		gyroscope.addSerie(sw.gyro.x);
-		gyroscope.addSerie(sw.gyro.y);
-		gyroscope.addSerie(sw.gyro.z);
+		gyroscope.addSerie(realtimeChart.gyro.x);
+		gyroscope.addSerie(realtimeChart.gyro.y);
+		gyroscope.addSerie(realtimeChart.gyro.z);
 		
 		/*
 		try {
@@ -100,11 +101,13 @@ public class ConfiguratorGui {
 		try {
 			listener.start();
 			
-			listener.addListener(sw);
+			listener.addListener(realtimeChart);
 			
 			listener.addListener(myDcm);
 			
 			listener.addListener(droneDcm);
+			
+			listener.addListener(new FileRecoder());
 			
 			//listener.addListener(new BasicFilter());
 			

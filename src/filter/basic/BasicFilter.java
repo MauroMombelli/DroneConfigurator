@@ -44,7 +44,7 @@ public class BasicFilter extends SerieWrapper {
 		basicFilterGUI.setVisible(true);
 		
 		//load default value
-		zero.setAcceZero( new Vector3d(-4089.385,5226.89,7490.706666666667) );
+		zero.setAcceZero( new Vector3d(0,0,0) );
 	}
 
 	TreeMap<Short, List<Vector3s>> accByX = new TreeMap<>();

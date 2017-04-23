@@ -37,13 +37,15 @@ public class MyDcm implements VectorListener{
 		case acce:
 			lastAcce = new Vector3d();
 			lastAcce.add(a);
+			//System.out.println(lastAcce);
 			lastAcce.mult( 1/lastAcce.lenght() );
+			//System.out.println(lastAcce);
 			break;
 		case gyro:
 			lastGyro = new Vector3d();
 			lastGyro.add(a);
 			//((int16 * mdpsOverDigitAt500) / 1000) * 0.0174532925f
-			lastGyro.mult(mdpsOverDigitAt250);
+			lastGyro.mult(mdpsOverDigitAt500);
 			lastGyro.mult(1/1000.0);
 			lastGyro.mult(0.0174532925);
 			break;
@@ -53,11 +55,14 @@ public class MyDcm implements VectorListener{
 			lastMagne.mult( 1/lastMagne.lenght() );
 			break;
 		}
+		
 		if (lastGyro != null && (lastAcce!=null || lastMagne != null)){
+			lastGyro = new Vector3d(0,0,0);
+			
 			if (lastAcce == null)
 				lastAcce = new Vector3d(0,0,1);
 			
-			//if (lastMagne == null)
+			if (lastMagne == null)
 				lastMagne = new Vector3d();
 			
 			dcm.update( 
@@ -95,7 +100,7 @@ public class MyDcm implements VectorListener{
 			
 			dcm.getQuaternion().createMatrix(matrix);
 			*/
-			p.setRotation( fromQuad.getArray() );
+			p.setRotation( eulerAngles.getArray() );
 			
 			vMyDcm.addNextVector( fromQuad.getArray() );
 			
